@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+   Add brand colours / spacing tokens here
+───────────────────────────────────────────── */
+:root {
+  --orange: #ff5b12;
+  --orange-dark: #e04a00;
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+}
+
+/* Smooth dark/light transitions */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove transition override for motion elements */
+[data-framer-motion] {
+  transition: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+/* Logo font utility */
+.font-display { font-family: var(--font-display); }
+
+/* Billboard mock gradient */
+.billboard-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(255,91,18,0.55) 100%);
+}
