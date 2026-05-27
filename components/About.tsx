@@ -1,14 +1,36 @@
 "use client";
 
+import assets from "@/assets/assets";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
+import { TrendingUp, Lightbulb, Rocket, BarChart3 } from "lucide-react";
 
-// ── ABOUT PILLARS — edit labels/descriptions here ──
 const PILLARS = [
-  { icon: "✦", title: "Strategy", desc: "Data-driven plans" },
-  { icon: "✦", title: "Creativity", desc: "Ideas that connect" },
-  { icon: "✦", title: "Execution", desc: "Flawless delivery" },
-  { icon: "✦", title: "Results", desc: "Growth that lasts" },
+  {
+    title: "Strategy",
+    desc: "We plan campaigns with clear goals, audience insight, and measurable direction.",
+    icon: TrendingUp,
+    accent: "from-orange-500 to-orange-600",
+  },
+  {
+    title: "Creativity",
+    desc: "We create visuals, stories, and ideas that make people stop, feel, and remember.",
+    icon: Lightbulb,
+    accent: "from-amber-500 to-orange-500",
+  },
+  {
+    title: "Execution",
+    desc: "We turn ideas into polished digital campaigns, outdoor ads, and brand experiences.",
+    icon: Rocket,
+    accent: "from-orange-600 to-red-500",
+  },
+  {
+    title: "Results",
+    desc: "We focus on visibility, engagement, leads, and long-term business growth.",
+    icon: BarChart3,
+    accent: "from-orange-500 to-yellow-500",
+  },
 ];
 
 export default function About() {
@@ -16,58 +38,77 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="py-24 bg-white dark:bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        {/* Left copy */}
+    <section id="about" ref={ref} className="relative overflow-hidden py-24 bg-white dark:bg-zinc-950">
+      {/* Background glow effects */}
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-orange-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-zinc-900/5 dark:bg-orange-500/10 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+        {/* Left Content */}
         <div>
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-4"
+            className="inline-flex items-center gap-3 text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-5"
           >
+            <span className="w-10 h-[2px] bg-orange-500" />
             About TalkStuff
           </motion.span>
 
-          {/* ── ABOUT HEADLINE — edit here ── */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black leading-tight text-zinc-900 dark:text-white mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-zinc-900 dark:text-white mb-6"
           >
-            Your Digital Growth &{" "}
-            <span className="text-orange-500">Advertising</span> Partner
+            Your Digital Growth & <span className="text-orange-500">Advertising</span> Partner
           </motion.h2>
 
-          {/* ── ABOUT DESCRIPTION — edit here ── */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-10"
+            className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-12 max-w-xl"
           >
-            TalkStuff Digital Services is a full-service digital agency helping businesses
-            grow their brand, reach the right audience, and drive measurable results
-            through smart strategy, creative content, and powerful advertising.
+            TalkStuff Digital Services is a full-service digital agency helping businesses grow their brand, reach the right audience, and drive
+            measurable results through smart strategy, creative content, and powerful advertising.
           </motion.p>
 
-          {/* Pillars grid */}
-          <div className="grid grid-cols-2 gap-4 mb-10">
-            {PILLARS.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-                className="border border-zinc-200 dark:border-white/10 rounded-2xl p-5
-                           hover:border-orange-400 dark:hover:border-orange-500 transition-colors group"
-              >
-                <div className="text-orange-500 text-xl mb-2">{p.icon}</div>
-                <div className="font-black text-zinc-900 dark:text-white">{p.title}</div>
-                <div className="text-zinc-400 text-sm mt-0.5">{p.desc}</div>
-              </motion.div>
-            ))}
+          {/* Pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
+            {PILLARS.map((p, i) => {
+              const Icon = p.icon;
+
+              return (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
+                  className="group relative overflow-hidden rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl p-6 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500"
+                >
+                  {/* subtle background glow */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.accent} flex items-center justify-center shadow-lg mb-5`}>
+                    <Icon className="w-7 h-7 text-white" strokeWidth={2.3} />
+                  </div>
+
+                  <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-2">{p.title}</h3>
+
+                  <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{p.desc}</p>
+
+                  <div className="mt-5 flex items-center justify-between">
+                    <div className="h-1 w-10 rounded-full bg-orange-500 group-hover:w-20 transition-all duration-300" />
+
+                    <span className="text-orange-500 text-sm font-bold opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                      Learn More →
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.a
@@ -75,38 +116,46 @@ export default function About() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.65 }}
             href="#contact"
-            className="inline-flex items-center gap-2 text-zinc-900 dark:text-white font-bold
-                       border-b-2 border-orange-500 pb-0.5 hover:text-orange-500 transition-colors"
+            className="inline-flex items-center gap-3 text-zinc-900 dark:text-white font-bold hover:text-orange-500 transition-colors"
           >
-            Learn More About Us →
+            <span className="border-b-2 border-orange-500 pb-1">Learn More About Us</span>→
           </motion.a>
         </div>
 
-        {/* Right visual */}
+        {/* Right Visual */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative"
         >
-          {/* ── ABOUT IMAGE — replace with your image ── */}
-          <div className="rounded-3xl overflow-hidden bg-zinc-900 h-80 flex items-center justify-center relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-zinc-900" />
-            {/* Placeholder — replace with: <img src="/images/office-collab.png" className="w-full h-full object-cover" alt="Team at work" /> */}
-            <div className="relative z-10 text-center">
-              <div className="text-6xl mb-3">🏢</div>
-              <p className="text-white/60 text-sm">Add office-collab.png here</p>
+          <div className="relative rounded-[2rem] overflow-hidden bg-zinc-900 h-[500px] shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 via-transparent to-black/70 z-10" />
+
+            <Image src={assets.officeCollab} className="w-full h-full object-cover" alt="Team at work" />
+
+            {/* floating stat card */}
+            <div className="absolute top-6 left-6 z-20 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl rounded-3xl px-6 py-5 shadow-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">We Build</p>
+              <p className="text-zinc-900 dark:text-white font-black text-2xl">Brands That Move</p>
             </div>
           </div>
 
-          {/* Building ad overlay card */}
+          {/* floating CTA card */}
           <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 -right-4 bg-orange-500 text-white p-6 rounded-2xl shadow-2xl shadow-orange-500/30 max-w-[200px]"
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -bottom-8 -right-4 bg-orange-500 text-white p-7 rounded-3xl shadow-2xl shadow-orange-500/30 max-w-[240px]"
           >
-            <p className="font-black text-lg leading-tight">
-              YOUR BRAND<br />EVERYWHERE<br />
+            <p className="font-black text-xl leading-tight">
+              YOUR BRAND
+              <br />
+              EVERYWHERE
+              <br />
               <span className="text-black">IT MATTERS.</span>
             </p>
           </motion.div>

@@ -1,6 +1,8 @@
 "use client";
 
+import assets from "@/assets/assets";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 // ── BILLBOARD FEATURES — edit checkmarks here ──
@@ -34,21 +36,17 @@ export default function Billboard() {
           transition={{ duration: 0.7 }}
           className="relative rounded-3xl overflow-hidden h-72 lg:h-96"
         >
-          {/* ── BILLBOARD IMAGE — replace with: <img src="/images/billboard-road.png" className="w-full h-full object-cover" /> ── */}
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-            <div className="text-7xl opacity-40">🛣️</div>
-            <p className="absolute bottom-4 text-white/30 text-xs">Add billboard-road.png here</p>
-          </div>
+          <Image src={assets.billboardPortrait} alt="billboard portrait" className="w-full h-full object-cover object-[center_20%]" />
 
           {/* Overlay text */}
           <div className="absolute inset-0 billboard-overlay flex items-end p-8">
             <div>
               <p className="text-white font-black text-2xl leading-tight">
-                BILLBOARD<br />ADVERTISING
+                BILLBOARD
+                <br />
+                ADVERTISING
               </p>
-              <p className="text-orange-300 text-sm font-semibold mt-1">
-                Be Seen. Be Remembered.
-              </p>
+              <p className="text-orange-300 text-sm font-semibold mt-1">Be Seen. Be Remembered.</p>
             </div>
           </div>
         </motion.div>
@@ -80,8 +78,8 @@ export default function Billboard() {
             transition={{ delay: 0.2 }}
             className="text-white/60 leading-relaxed mb-7"
           >
-            Our outdoor media puts your brand in high-traffic locations where thousands
-            of eyes can meet you. We handle strategy, design, placement and reporting.
+            Our outdoor media puts your brand in high-traffic locations where thousands of eyes can meet you. We handle strategy, design, placement
+            and reporting.
           </motion.p>
 
           {/* Checklist */}

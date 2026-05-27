@@ -1,6 +1,8 @@
 "use client";
 
+import assets from "@/assets/assets";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // ── HERO METRICS — edit numbers/labels here ──
 const METRICS = [
@@ -27,8 +29,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage:
-            "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -47,21 +48,23 @@ export default function Hero() {
 
             {/* ── MAIN HEADLINE — edit here ── */}
             <motion.h1 {...fadeUp(0.2)} className="text-white text-5xl md:text-7xl font-black leading-[0.95] tracking-tight mb-6">
-              We Build<br />Brands. We{" "}
-              <span className="text-orange-500">Drive<br />Growth.</span>
+              We Build
+              <br />
+              Brands. We{" "}
+              <span className="text-orange-500">
+                Drive
+                <br />
+                Growth.
+              </span>
             </motion.h1>
 
             {/* ── SUBTITLE — edit here ── */}
             <motion.p {...fadeUp(0.3)} className="text-white/60 text-lg leading-relaxed mb-8 max-w-md">
-              Digital marketing that performs. Billboard advertising that gets you seen.
-              Results that speak for themselves.
+              Digital marketing that performs. Billboard advertising that gets you seen. Results that speak for themselves.
             </motion.p>
 
             <motion.div {...fadeUp(0.4)} className="flex gap-4 flex-wrap mb-12">
-              <a
-                href="#contact"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-full transition-colors"
-              >
+              <a href="#contact" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
                 Book a Strategy Call →
               </a>
               <a
@@ -96,7 +99,7 @@ export default function Hero() {
             className="relative hidden lg:block h-[500px]"
           >
             {/* ── HERO IMAGE — replace src with your image path ── */}
-            {/* <img src="/images/hero-dark-man.png" className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[460px] object-contain z-10" alt="Strategist" /> */}
+            <Image src={assets.hero} className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[460px] object-contain z-10" alt="Strategist" />
 
             {/* Mini billboard card */}
             <motion.div
@@ -105,7 +108,10 @@ export default function Hero() {
               className="absolute top-0 right-0 w-56 bg-black border border-orange-500/50 p-5 rounded-2xl z-20"
             >
               <p className="text-white font-black text-lg leading-tight">
-                BIG IDEAS.<br />BIGGER REACH.<br />
+                BIG IDEAS.
+                <br />
+                BIGGER REACH.
+                <br />
                 <span className="text-orange-500">REAL RESULTS.</span>
               </p>
             </motion.div>
@@ -140,9 +146,7 @@ export default function Hero() {
               className="absolute bottom-8 right-8 w-36 bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden z-20"
             >
               {/* ── Replace with actual social preview image if available ── */}
-              <div className="h-24 bg-gradient-to-br from-orange-500/30 to-zinc-800 flex items-center justify-center text-3xl">
-                📱
-              </div>
+              <div className="h-24 bg-gradient-to-br from-orange-500/30 to-zinc-800 flex items-center justify-center text-3xl">📱</div>
               <div className="p-3 space-y-2">
                 <div className="h-2 bg-white/20 rounded-full w-full" />
                 <div className="h-2 bg-white/10 rounded-full w-3/5" />
