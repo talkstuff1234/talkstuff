@@ -1,38 +1,122 @@
 @import "tailwindcss";
 
-/* ─────────────────────────────────────────────
-   CSS CUSTOM PROPERTIES
-   Add brand colours / spacing tokens here
-───────────────────────────────────────────── */
 :root {
-  --orange: #ff5b12;
-  --orange-dark: #e04a00;
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-color: #ff6900;
 }
 
-/* Smooth dark/light transitions */
-*, *::before, *::after {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Remove transition override for motion elements */
-[data-framer-motion] {
-  transition: none;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
 
-/* Logo font utility */
-.font-display { font-family: var(--font-display); }
+  50% {
+    transform: translate(80px, -50px);
+  }
+}
 
-/* Billboard mock gradient */
-.billboard-overlay {
-  background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(255,91,18,0.55) 100%);
+@keyframes floatDelayed {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-100px, 70px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(120px, -80px);
+  }
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 18s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 25s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(80px, -50px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.97);
+  }
+}
+
+@theme {
+  --animate-float: float 8s ease-in-out infinite;
 }

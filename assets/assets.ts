@@ -1,8 +1,9 @@
-import hero from "./hero-dark-man.png";
+import hero from "./hero.png";
 import officeCollab from "./office-collab.png";
 import billboardPortrait from "./billboard-portrait.png";
 import logo from "./logo.png";
 
+import billboard from './billboard.png';
 import borealis from "./borealis.jpeg";
 import firs from "./firs.jpg";
 import gez from "./gez.jpeg";
@@ -29,7 +30,8 @@ const assets = {
   logo,
   hero,
   officeCollab,
-  billboardPortrait,
+    billboardPortrait,
+  billboard,
 
   borealis,
   firs,
