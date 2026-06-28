@@ -17,7 +17,7 @@ const navLinks: NavLink[] = [
   { label: "About Us", href: "#about", type: "section" },
   { label: "Our Services", href: "#services", type: "section" },
   { label: "Clients", href: "#clients", type: "section" },
-  { label: "Contact Us", href: "#contact", type: "section" },
+  // { label: "Contact Us", href: "#contact", type: "section" },
 ];
 
 export default function Navbar() {
@@ -91,7 +91,7 @@ export default function Navbar() {
           href="#contact"
           className="hidden rounded-full bg-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:opacity-80 md:inline-flex"
         >
-          Book A Free Call
+          Contact us
         </Link>
 
         <button
@@ -141,7 +141,7 @@ export default function Navbar() {
             onClick={closeMobileMenu}
             className="mt-3 rounded-full bg-[var(--primary-color)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:opacity-80"
           >
-            Book A Free Call
+            Contact us
           </Link>
         </nav>
       </div>

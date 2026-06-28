@@ -17,7 +17,7 @@ const brands = ["SAMSUNG", "airtel", "paga", "UBA", "Uber", "DStv", "FirstBank"]
 export default function Hero() {
   return (
     <section className="relative overflow-hidden px-6 pb-20 pt-20 text-white">
-      <main className="mx-auto max-w-6xl text-center">
+      <div className="mx-auto max-w-6xl text-center">
         <motion.span
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ export default function Hero() {
             ))}
           </div>
         </div> */}
-      </main>
+      </div>
     </section>
   );
 }

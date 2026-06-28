@@ -14,7 +14,7 @@ export default function Home() {
       <Services />
       <BillboardSection />
       <Clients />
-      <Team />
+      {/* <Team /> */}
       <Contact />
     </>
   );
