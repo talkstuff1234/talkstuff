@@ -24,9 +24,9 @@ export default function Contact() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {[
-            ["✉", "Email Us At", "hello@talkstuff.social"],
+            ["✉", "Email Us At", "contact@talkstuff.social"],
             ["⌖", "Our Location", "Abuja, Nigeria"],
-            ["♧", "Call Us At", "+234 706 123 4567"],
+            ["♧", "Call Us At", "+234 802 954 5630 or +234 807 089 6598"],
           ].map((item, index) => (
             <motion.div
               key={item[1]}

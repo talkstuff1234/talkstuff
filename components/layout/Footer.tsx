@@ -103,12 +103,12 @@ export default function Footer() {
           <div className="grid gap-6 md:grid-cols-3">
             <div>
               <p className="text-xs uppercase tracking-wider text-gray-500">Email</p>
-              <p className="mt-2 text-sm text-white">hello@talkstuff.social</p>
+              <p className="mt-2 text-sm text-white"> contact@talkstuff.social</p>
             </div>
 
             <div>
               <p className="text-xs uppercase tracking-wider text-gray-500">Phone</p>
-              <p className="mt-2 text-sm text-white">+234 706 123 4567</p>
+              <p className="mt-2 text-sm text-white">+234 807 089 6598 or +234 802 954 5630</p>
             </div>
 
             <div>

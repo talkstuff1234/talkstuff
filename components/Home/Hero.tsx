@@ -68,9 +68,15 @@ export default function Hero() {
           initial={{ opacity: 0, y: 35, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl"
+          className="mx-auto mt-12 max-w-xl overflow-hidden rounded-2xl"
         >
-          <Image src={assets.hero} alt="TalkStuff digital advertising" width={1200} height={700} className="h-[420px] w-full object-cover" priority />
+          <Image
+            src={assets.hero}
+            alt="TalkStuff digital advertising"
+            className="h-auto w-full object-contain"
+            sizes="(max-width: 768px) 100vw, 576px"
+            priority
+          />
         </motion.div>
 
         <motion.div

@@ -1,4 +1,4 @@
-import hero from "./hero.png";
+import hero from "./new-hero.png";
 import officeCollab from "./office-collab.png";
 import billboardPortrait from "./billboard-portrait.png";
 import logo from "./logo.png";
@@ -25,6 +25,7 @@ import Olaosebikan from "./Olaosebikan.jpg";
 import Oyewole from "./Oyewole.jpg";
 import Rachel from "./Rachel.jpg";
 import Zainab from "./Zainab.jpg";
+
 
 const assets = {
   logo,
