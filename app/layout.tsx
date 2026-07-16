@@ -88,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-NG" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
+      <body suppressHydrationWarning className="flex min-h-full flex-col">
         <Navbar />
         <AnimatedBackground />
         <main className="flex-1">{children}</main>
