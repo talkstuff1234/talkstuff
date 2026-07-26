@@ -24,36 +24,37 @@ const ratePlans = [
     duration: "1 month",
     rate: "NGN 1,350,000",
     discount: "30%",
-    discountedRate: "NGN 875,000",
-    total: "NGN 875,000",
+    discountedRate: "NGN 945,000",
+    pioneerRate: "NGN 845,000",
+    note: "Includes an additional NGN 100,000 pioneer discount",
   },
   {
     duration: "3 months",
     rate: "NGN 1,100,000",
     discount: "30%",
     discountedRate: "NGN 770,000",
-    total: "NGN 2,310,000",
+    pioneerRate: "NGN 2,310,000",
   },
   {
     duration: "6 months",
     rate: "NGN 850,000",
     discount: "30%",
-    discountedRate: "NGN 630,000",
-    total: "NGN 3,780,000",
+    discountedRate: "NGN 595,000",
+    pioneerRate: "NGN 3,570,000",
   },
 ];
 
 const packageIncludes = [
   "Premium billboard display",
-  "Artwork / creative design",
+  "Artwork/creative design",
   "Amplification of message online",
   "Periodic sponsored digital advertising",
   "Professional support throughout the display period",
 ];
 
 const productionCosts = [
-  { item: "410gm flex production / printing", price: "NGN 180,000" },
-  { item: "610gm flex production / printing", price: "NGN 340,000" },
+  { item: "410gm flex production/printing", price: "NGN 180,000" },
+  { item: "610gm flex production/printing", price: "NGN 340,000" },
   { item: "Installation", price: "NGN 150,000" },
 ];
 
@@ -152,7 +153,7 @@ export default function BillboardSection() {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-[var(--primary-color)]/40 bg-[var(--primary-color)]/10 px-3 py-1 text-xs font-semibold text-[var(--primary-color)]">
                 <Megaphone size={14} />
-                Outdoor Introductory Rate Card
+                Outdoor Introductory Advertising Rate Card
               </span>
 
               <h3 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">Lugbe Airport Road Billboard</h3>
@@ -192,15 +193,17 @@ export default function BillboardSection() {
                   </div>
 
                   <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3">
-                    <span className="text-gray-500">Discounted rate</span>
+                    <span className="text-gray-500">Discount rate</span>
                     <span className="font-semibold text-gray-300">{plan.discountedRate}</span>
                   </div>
 
                   <div className="flex items-center justify-between gap-4 pt-1">
-                    <span className="text-gray-400">Total per face</span>
-                    <span className="text-lg font-bold text-[var(--primary-color)]">{plan.total}</span>
+                    <span className="text-gray-400">Pioneer client rate</span>
+                    <span className="text-lg font-bold text-[var(--primary-color)]">{plan.pioneerRate}</span>
                   </div>
                 </div>
+
+                {"note" in plan && plan.note ? <p className="mt-4 text-xs leading-5 text-gray-500">{plan.note}</p> : null}
               </div>
             ))}
           </div>
