@@ -16,6 +16,7 @@ const clients = [
   { name: "JunkTion Limited", logo: assets.junkTion },
   { name: "Maifaku Nig Ltd", logo: assets.maiAfaku },
   { name: "Borealis", logo: assets.borealis },
+  { name: "Hamak Eats", logo: assets.hamakEats },
 ];
 
 export default function Clients() {
