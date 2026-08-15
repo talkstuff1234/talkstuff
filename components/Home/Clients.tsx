@@ -11,7 +11,7 @@ const clients = [
   { name: "Wells Carlton Hotels & Apartments", logo: assets.wells },
   { name: "Green Economic Zone (GEZ)", logo: assets.gez },
   { name: "SUMOGO Nig Ltd", logo: assets.sumo },
-  { name: "Federal Inland Revenue", logo: assets.firs },
+  { name: "Nigeria Revenue Service", logo: assets.nrs },
   { name: "K K Kingdom Nig Limited", logo: assets.kk },
   { name: "JunkTion Limited", logo: assets.junkTion },
   { name: "Maifaku Nig Ltd", logo: assets.maiAfaku },

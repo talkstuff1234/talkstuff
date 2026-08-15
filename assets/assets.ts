@@ -16,6 +16,7 @@ import nirsal from "./nirsal.jpeg";
 import sumo from "./sumo.png";
 import transcorp from "./transcorp.png";
 import wells from "./wells.png";
+import nrs from './nrs.webp'
 
 import Bola from "./Bola.jpg";
 import Godwin from "./Godwin.jpg";
@@ -46,6 +47,7 @@ const assets = {
   sumo,
   transcorp,
   wells,
+  nrs,
 
   Bola,
   Godwin,
