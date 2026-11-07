@@ -1,98 +1,34 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import heroImage from "@/assets/hero.png";
-import Navbar from "@/components/layout/Navbar";
-import AnimatedBackground from "@/components/ui/AnimatedBackground";
-import Footer from "@/components/layout/Footer";
-import { siteConfig } from "@/lib/site";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata, Viewport } from 'next';
+import type { ReactNode } from 'react';
+import '@fontsource-variable/inter-tight';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import './globals.css';
+import Header from '@/components/Header';
+import SiteEffects from '@/components/SiteEffects';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  applicationName: siteConfig.shortName,
-  title: {
-    default: "TalkStuff | Digital Marketing & Billboard Advertising",
-    template: "%s | TalkStuff",
-  },
-  description: siteConfig.description,
-  keywords: [
-    "digital marketing agency Abuja",
-    "digital marketing Nigeria",
-    "billboard advertising Abuja",
-    "outdoor advertising Nigeria",
-    "social media marketing",
-    "content creation",
-    "web design",
-  ],
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_NG",
-    url: "/",
-    siteName: siteConfig.shortName,
-    title: "TalkStuff | Digital Marketing & Billboard Advertising",
-    description: siteConfig.description,
-    images: [
-      {
-        url: heroImage.src,
-        width: heroImage.width,
-        height: heroImage.height,
-        alt: "TalkStuff digital growth and outdoor advertising",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TalkStuff | Digital Marketing & Billboard Advertising",
-    description: siteConfig.description,
-    images: [heroImage.src],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  category: "marketing",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  title: { default: 'TalkStuff | Digital Marketing & Billboard Advertising in Abuja', template: '%s | TalkStuff' },
+  description:
+    'TalkStuff is an Abuja digital agency helping brands grow through digital marketing, social media, content creation, web design, and billboard advertising.',
+  openGraph: { title: 'TalkStuff | Digital Marketing & Billboard Advertising', type: 'website', locale: 'en_NG', siteName: 'TalkStuff' },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = { themeColor: '#EFEDE8', width: 'device-width', initialScale: 1 };
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-NG" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body suppressHydrationWarning className="flex min-h-full flex-col">
-        <Navbar />
-        <AnimatedBackground />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Enables the scroll animations only when JavaScript is running */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body>
+        <a className="skip" href="#main">Skip to content</a>
+        <div className="prog" aria-hidden="true" />
+        <Header />
+        {children}
+        <SiteEffects />
       </body>
     </html>
   );
