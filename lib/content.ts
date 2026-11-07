@@ -43,7 +43,7 @@ export const NAV = [
 ];
 
 export const CONTACT = {
-  email: 'contact@talkstuff.social',
+  email: 'talkstuff.office@gmail.com',
   phones: [
     { label: '+234 802 954 5630', href: 'tel:+2348029545630' },
     { label: '+234 807 089 6598', href: 'tel:+2348070896598' },

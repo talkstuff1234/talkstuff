@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import type { ReactNode } from 'react';
-import { CLIENTS, CONTACT, RATES, STATS } from '@/lib/content';
+import Link from "next/link";
+import type { ReactNode } from "react";
+import { CLIENTS, CONTACT, RATES, STATS } from "@/lib/content";
 
 export const Sp = ({ children }: { children: ReactNode }) => <span className="serif acc">{children}</span>;
 
@@ -13,8 +13,12 @@ export function Hero({ left, right, title, intro }: { left: string; right: strin
           <span>{left}</span>
           <span>{right}</span>
         </div>
-        <h1 className="d3" style={{ marginTop: 40 }} data-split>{title}</h1>
-        <p className="lead" style={{ marginTop: 48, paddingBottom: 80 }} data-r>{intro}</p>
+        <h1 className="d3" style={{ marginTop: 40 }} data-split>
+          {title}
+        </h1>
+        <p className="lead" style={{ marginTop: 48, paddingBottom: 80 }} data-r>
+          {intro}
+        </p>
       </div>
     </section>
   );
@@ -25,8 +29,12 @@ export function Hd({ eyebrow, title, extra }: { eyebrow: string; title: ReactNod
   return (
     <div className="hd between">
       <div>
-        <div className="eb" data-r>{eyebrow}</div>
-        <h2 className="d2" data-split>{title}</h2>
+        <div className="eb" data-r>
+          {eyebrow}
+        </div>
+        <h2 className="d2" data-split>
+          {title}
+        </h2>
       </div>
       {extra}
     </div>
@@ -41,7 +49,10 @@ export function Stats() {
           {s.text ? (
             <div className="num">{s.text}</div>
           ) : (
-            <div className="num" data-count={s.n} data-suffix={s.suffix}>{s.n}{s.suffix}</div>
+            <div className="num" data-count={s.n} data-suffix={s.suffix}>
+              {s.n}
+              {s.suffix}
+            </div>
           )}
           <div className="eb mute">{s.label}</div>
         </div>
@@ -55,11 +66,23 @@ export function Rates() {
     <div className="rates" data-stagger>
       {RATES.map((r) => (
         <div className="rate" key={r.n}>
-          <div className="big">{r.n}<span className="serif"> {r.unit}</span></div>
+          <div className="big">
+            {r.n}
+            <span className="serif"> {r.unit}</span>
+          </div>
           <div className="eb">30% off</div>
-          <div className="rt"><span>Rate per face</span><b>{r.rate}</b></div>
-          <div className="rt"><span>Discount rate</span><b>{r.discount}</b></div>
-          <div className="rt"><span>Pioneer client</span><b>{r.pioneer}</b></div>
+          <div className="rt">
+            <span>Rate per face</span>
+            <b>{r.rate}</b>
+          </div>
+          <div className="rt">
+            <span>Discount rate</span>
+            <b>{r.discount}</b>
+          </div>
+          <div className="rt">
+            <span>Pioneer client</span>
+            <b>{r.pioneer}</b>
+          </div>
         </div>
       ))}
     </div>
@@ -69,14 +92,30 @@ export function Rates() {
 export function Info() {
   return (
     <div className="ci" data-stagger>
-      <div><div className="eb mute">Email us at</div><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></div>
-      <div><div className="eb mute">Our location</div>Abuja, Nigeria</div>
+      <div>
+        <div className="eb mute">Email us at</div>
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+      </div>
+      <div>
+        <div className="eb mute">Our location</div>Abuja, Nigeria
+      </div>
       <div>
         <div className="eb mute">Call us at</div>
-        <a href={CONTACT.phones[0].href}>{CONTACT.phones[0].label}</a><br />
-        <a href={CONTACT.phones[1].href}>{CONTACT.phones[1].label}</a>
+        <a href={CONTACT.phones[0].href}>{CONTACT.phones[0].label}</a>
+        <br />
       </div>
-      <small>Free strategy consultation<br />Tailored solutions for your business<br />No long-term contract for billboard-only bookings</small>
+      <div>
+        <div className="eb mute">Get us on whatsapp</div>
+        <a href="https://wa.me/2348029545630">08029545630</a>
+        <br />
+      </div>
+      <small>
+        Free strategy consultation
+        <br />
+        Tailored solutions for your business
+        <br />
+        No long-term contract for billboard-only bookings
+      </small>
     </div>
   );
 }
@@ -85,7 +124,13 @@ export function Board() {
   return (
     <>
       <div className="board" data-parallax="-0.08">
-        <div>YOUR BRAND<br />EVERYWHERE<br /><span className="serif">it matters.</span></div>
+        <div>
+          YOUR BRAND
+          <br />
+          EVERYWHERE
+          <br />
+          <span className="serif">it matters.</span>
+        </div>
       </div>
       <div className="pole" />
     </>
@@ -98,7 +143,7 @@ export function ClientRows({ names = CLIENTS }: { names?: string[] }) {
       {names.map((n, i) => (
         <Link href="/contact" className="cl" data-r key={n}>
           <span>{n}</span>
-          <span className="eb mute">{String(i + 1).padStart(2, '0')}</span>
+          <span className="eb mute">{String(i + 1).padStart(2, "0")}</span>
         </Link>
       ))}
       <div className="last" />
