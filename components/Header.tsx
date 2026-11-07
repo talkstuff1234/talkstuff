@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
-import { NAV } from '@/lib/content';
-import { getLenis } from '@/lib/smooth';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { NAV } from "@/lib/content";
+import { getLenis } from "@/lib/smooth";
+import NormalLogo from "./logo";
 
 export default function Header() {
   const pathname = usePathname();
@@ -22,8 +23,8 @@ export default function Header() {
       last = y;
     };
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggle = (next: boolean) => {
@@ -32,7 +33,7 @@ export default function Header() {
     setHide(false);
     const lenis = getLenis();
     if (lenis) next ? lenis.stop() : lenis.start();
-    else document.body.style.overflow = next ? 'hidden' : '';
+    else document.body.style.overflow = next ? "hidden" : "";
   };
 
   useEffect(() => {
@@ -40,20 +41,21 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && toggle(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && toggle(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   return (
-    <header className={`hdr${solid ? ' solid' : ''}${hide ? ' hide' : ''}`}>
+    <header className={`hdr${solid ? " solid" : ""}${hide ? " hide" : ""}`}>
       <div className="wrap">
-        <Link className="logo" href="/" aria-label="TalkStuff home">
+        <Link className="logo flex" href="/" aria-label="TalkStuff home">
+          <NormalLogo />
           TalkStuff<sup>&reg;</sup>
         </Link>
-        <nav className={`nav${open ? ' open' : ''}`} id="nav" aria-label="Main">
+        <nav className={`nav${open ? " open" : ""}`} id="nav" aria-label="Main">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href} aria-current={pathname === n.href ? 'page' : undefined}>
+            <Link key={n.href} href={n.href} aria-current={pathname === n.href ? "page" : undefined}>
               {n.label}
             </Link>
           ))}

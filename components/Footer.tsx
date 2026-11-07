@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { WhiteLogo } from "./logo";
 
 export default function Footer({ cta = true }: { cta?: boolean }) {
   return (
